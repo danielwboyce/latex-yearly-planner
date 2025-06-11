@@ -9,7 +9,7 @@ module LatexYearlyPlanner
         output :generator
 
         def call
-          self.generator = Core::Generator.new(indexer:, sectioner:)
+          self.generator = Services::Generator.new(indexer:, sectioner:)
         end
       end
     end

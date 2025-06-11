@@ -12,7 +12,7 @@ module LatexYearlyPlanner
         alias writer text_documents_writer
 
         def call
-          self.planner = Core::Planner.new(generator:, writer:, compiler:)
+          self.planner = Services::Planner.new(generator:, writer:, compiler:)
         end
       end
     end

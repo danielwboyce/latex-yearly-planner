@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module LatexYearlyPlanner
-  module Core
+  module Services
     class Generator
       attr_reader :indexer, :sectioner
 

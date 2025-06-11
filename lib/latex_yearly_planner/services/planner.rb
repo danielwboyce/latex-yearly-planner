@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module LatexYearlyPlanner
-  module Core
+  module Services
     class Planner
       attr_reader :generator, :writer, :compiler
 
