@@ -1,0 +1,93 @@
+fr:
+  calendar:
+    one_letter:
+      monday: L
+      tuesday: M
+      wednesday: M
+      thursday: J
+      friday: V
+      saturday: S
+      sunday: D
+
+      week: S
+
+      quarter: T
+
+    short:
+      month:
+        january: Janv
+        february: Févr
+        march: Mars
+        april: Avr
+        may: Mai
+        june: Juin
+        july: Juill
+        august: Août
+        september: Sept
+        october: Oct
+        november: Nov
+        december: Déc
+
+    month:
+      january: Janvier
+      february: Février
+      march: Mars
+      april: Avril
+      may: Mai
+      june: Juin
+      july: Juillet
+      august: Août
+      september: Septembre
+      october: Octobre
+      november: Novembre
+      december: Décembre
+
+    weekdays:
+      full:
+        monday: Lundi
+        tuesday: Mardi
+        wednesday: Mercredi
+        thursday: Jeudi
+        friday: Vendredi
+        saturday: Samedi
+        sunday: Dimanche
+
+        week: Semaine
+
+      short:
+        monday: Lun
+        tuesday: Mar
+        wednesday: Mer
+        thursday: Jeu
+        friday: Ven
+        saturday: Sam
+        sunday: Dim
+
+        week: Sem
+
+  menu_calendar: Calendrier
+  schedule: Agenda
+  top_priorities: Priorités
+  daily_notes: Notes
+  more_daily_notes: Plus
+  personal_notes: Personnel
+
+  daily_reflect:
+    name: Réflexions
+
+    goals: Objectifs
+    grateful: Choses dont je suis reconnaissant
+    best_thing: Le fait marquant du jour
+    log: Journal de bord
+
+  todo:
+    index: Liste de tâches
+    menu_index: Tâches
+    single_page: Tâches
+    menu_index_short: "Tâches"
+
+  notes:
+    index: Liste des notes
+    menu_index: Notes
+    single_page: Notes
+    menu_index_short: "Notes"
