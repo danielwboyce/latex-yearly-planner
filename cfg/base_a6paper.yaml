@@ -1,0 +1,67 @@
+weekstart: 1
+ampmtime: true
+dotted: true
+calafterschedule: false
+addlasthalfhour: false
+
+layout:
+  paper:
+    papertype: a6paper
+
+    documentclasssize: 8pt
+
+    marginparwidth: 0.8cm
+    marginparsep: 0.25cm
+    reversemargins: true
+
+    margin:
+      top: 1.2cm
+      bottom: 0.5cm
+      twoside: true
+      inner: 1.5cm
+      outer: 0.5cm
+
+  numbers:
+    arraystretch: 1.5
+    quarterlylines: 36
+    weeklylines: 5
+    dailytodos: 8
+    weeklytodos: 12
+    dailynotes: 10
+    weeklynotes: 10
+    dailypersonal: 6
+    dailybottomhour: 8
+    dailytophour: 23
+    dailydiarygoals: 10
+    dailydiarygrateful: 4
+    dailydiarybest: 4
+    dailydiarylog: 24
+    todolinesintodopage: 10
+    notesindexpages: 3
+    notesonpage: 35
+    dotheightfull: 36
+    dotwidthfull: 19
+    dotwidthhalf: 9
+    dotwidthtwothirds: 13
+    dotwidthquarterly: 8
+    dotwidthmonthly: 4
+
+  lengths:
+    tabcolsep: 3.5pt
+    linethicknessdefault: .4pt
+    linethicknessthick: .8pt
+    lineheightbutline: \dimexpr5mm-.4pt
+    schedulelineheightbutline: \dimexpr3.8125mm-.4pt
+    twocolsep: 5pt
+    tricolsep: 5pt
+    fivecolsep: 5pt
+    monthlycellheight: 55pt
+    notesindexcellheight: 1.37cm
+    headerresizebox: 6mm
+    headersidequarterswidth: 4cm
+    headersidemonthswidth: 14.5cm
+    dailyspring: \textcolor{white}{.}
+
+  colors:
+    gray: gray
+    lightgray: gray!50

@@ -1,4 +1,4 @@
-\documentclass[9pt]{extarticle}
+\documentclass[{{.Cfg.Layout.Paper.DocumentClassSize}}]{extarticle}
 
 \usepackage{geometry}
 \usepackage[table]{xcolor}
@@ -23,18 +23,27 @@
 \usepackage{marginnote}
 \usepackage{adjustbox}
 \usepackage{multido}
+%\usepackage{fontspec}
+%\usepackage{showframe}
 
 \hypersetup{
     {{- if not .Cfg.Debug.ShowLinks}}hidelinks=true{{end -}}
 }
 
 
-\geometry{paperwidth={{.Cfg.Layout.Paper.Width}}, paperheight={{.Cfg.Layout.Paper.Height}}}
+\geometry{ {{- if $.Cfg.Layout.Paper.PaperType}}{{.Cfg.Layout.Paper.PaperType}}{{else}}paperwidth={{.Cfg.Layout.Paper.Width}}, paperheight={{.Cfg.Layout.Paper.Height}}{{end -}} }
 \geometry{
-  top={{.Cfg.Layout.Paper.Margin.Top}},
-  bottom={{.Cfg.Layout.Paper.Margin.Bottom}},
+{{- if $.Cfg.Layout.Paper.Margin.TwoSide}}
+  twoside=true,
+  inner={{.Cfg.Layout.Paper.Margin.Inner}},
+  outer={{.Cfg.Layout.Paper.Margin.Outer}},
+{{- else}}
+  twoside=false,
   left={{.Cfg.Layout.Paper.Margin.Left}},
   right={{.Cfg.Layout.Paper.Margin.Right}},
+{{- end}}
+  top={{.Cfg.Layout.Paper.Margin.Top}},
+  bottom={{.Cfg.Layout.Paper.Margin.Bottom}},
   marginparwidth={{.Cfg.Layout.Paper.MarginParWidth}},
   marginparsep={{.Cfg.Layout.Paper.MarginParSep}}
 }

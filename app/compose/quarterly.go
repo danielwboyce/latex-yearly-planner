@@ -15,15 +15,18 @@ func Quarterly(cfg config.Config, tpls []string) (page.Modules, error) {
 		header.NewTextItem("Notes").RefText("Notes Index"),
 	}
 
-	for _, quarter := range year.Quarters {
+	for idx, quarter := range year.Quarters {
+		whichQuarter := idx % 2
 		modules = append(modules, page.Module{
 			Cfg: cfg,
-			Tpl: tpls[0],
+			Tpl: tpls[whichQuarter],
 			Body: map[string]interface{}{
 				"Year":         year,
 				"Quarter":      quarter,
 				"Breadcrumb":   quarter.Breadcrumb(),
 				"HeadingMOS":   quarter.HeadingMOS(),
+				"HeadingMOS_Left":   quarter.HeadingMOS_Left(),
+				"HeadingMOS_Right":   quarter.HeadingMOS_Right(),
 				"SideQuarters": year.SideQuarters(quarter.Number),
 				"SideMonths":   year.SideMonths(0),
 				"Extra":        hRight.WithTopRightCorner(cfg.ClearTopRightCorner),

@@ -34,6 +34,8 @@ func DailyStuff(prefix, leaf string) func(cfg config.Config, tpls []string) (pag
 								"Day":          day,
 								"Breadcrumb":   day.Breadcrumb(prefix, leaf, cfg.ClearTopRightCorner && len(leaf) > 0),
 								"HeadingMOS":   day.HeadingMOS(prefix, leaf),
+								"HeadingMOS_Left":   day.HeadingMOS_Left(prefix, leaf),
+								"HeadingMOS_Right":   day.HeadingMOS_Right(prefix, leaf),
 								"SideQuarters": year.SideQuarters(day.Quarter()),
 								"SideMonths":   year.SideMonths(day.Month()),
 								"Extra":        day.PrevNext(prefix).WithTopRightCorner(cfg.ClearTopRightCorner),

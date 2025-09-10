@@ -48,6 +48,14 @@ func (p Notes) HeadingMOS(page, pages int) string {
 	return out
 }
 
+func (p Notes) HeadingMOS_Left(page, pages int) string {
+	return p.HeadingMOS(page, pages)
+}
+
+func (p Notes) HeadingMOS_Right(page, pages int) string {
+	return p.HeadingMOS(page, pages)
+}
+
 func (p Notes) ref(page int) string {
 	var suffix string
 

@@ -19,6 +19,8 @@ func Annual(cfg config.Config, tpls []string) (page.Modules, error) {
 			"Year":         year,
 			"Breadcrumb":   year.Breadcrumb(),
 			"HeadingMOS":   year.HeadingMOS(),
+			"HeadingMOS_Left":   year.HeadingMOS_Left(),
+			"HeadingMOS_Right":   year.HeadingMOS_Right(),
 			"SideQuarters": year.SideQuarters(0),
 			"SideMonths":   year.SideMonths(0),
 			"Extra": header.Items{header.NewTextItem("Notes").RefText("Notes Index")}.

@@ -181,3 +181,25 @@ func (d Day) HeadingMOS(prefix, leaf string) string {
 	contents := strings.Join(r1, ` & `) + `\\` + "\n" + strings.Join(r2, ` & `)
 	return tex.Hypertarget(prefix+d.ref(), "") + tex.Tabular("@{}"+ll+"l|l"+rl, contents)
 }
+
+func (d Day) HeadingMOS_Left(prefix, leaf string) string {
+	return `\begin{tabular}{@{}l|l}
+  \multirow{2}{*}{\resizebox{!}{\myLenHeaderResizeBox}{` + strconv.Itoa(d.Time.Day()) + `}}
+  &
+  \textbf{` + d.Time.Weekday().String() + `}
+  \\
+  &
+  ` + d.Time.Month().String() + ` ` + strconv.Itoa(d.Time.Year()) + `
+\end{tabular}`
+}
+
+func (d Day) HeadingMOS_Right(prefix, leaf string) string {
+	return `\begin{tabular}{@{}r|l}
+  \textbf{` + d.Time.Weekday().String() + `}
+  &
+  \multirow{2}{*}{\resizebox{!}{\myLenHeaderResizeBox}{` + strconv.Itoa(d.Time.Day()) + `}}
+  \\
+  ` + d.Time.Month().String() + ` ` + strconv.Itoa(d.Time.Year()) + `
+  &
+\end{tabular}`
+}

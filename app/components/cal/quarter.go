@@ -61,3 +61,23 @@ func (q *Quarter) HeadingMOS() string {
   \resizebox{!}{\myLenHeaderResizeBox}{` + hyper.Target(q.Name(), q.Name()) + `}
 \end{tabular}`
 }
+
+func (q *Quarter) HeadingMOS_Left() string {
+	return `\begin{tabular}{@{}r|l}
+  \multirow{2}{*}{\resizebox{!}{\myLenHeaderResizeBox}{` + q.Name() + `}}
+  &
+  \\
+  &
+  ` + strconv.Itoa(q.Year.Number) + `
+\end{tabular}`
+}
+
+func (q *Quarter) HeadingMOS_Right() string {
+	return `\begin{tabular}{@{}r|l}
+  &
+  \multirow{2}{*}{\resizebox{!}{\myLenHeaderResizeBox}{` + q.Name() + `}}
+  \\
+  ` + strconv.Itoa(q.Year.Number) + `
+  &
+\end{tabular}`
+}

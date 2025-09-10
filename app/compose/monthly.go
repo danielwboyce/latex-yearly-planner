@@ -21,6 +21,8 @@ func Monthly(cfg config.Config, tpls []string) (page.Modules, error) {
 					"Month":        month,
 					"Breadcrumb":   month.Breadcrumb(),
 					"HeadingMOS":   month.HeadingMOS(),
+					"HeadingMOS_Left":   month.HeadingMOS_Left(),
+					"HeadingMOS_Right":   month.HeadingMOS_Right(),
 					"SideQuarters": year.SideQuarters(quarter.Number),
 					"SideMonths":   year.SideMonths(month.Month),
 					"Extra":        month.PrevNext().WithTopRightCorner(cfg.ClearTopRightCorner),

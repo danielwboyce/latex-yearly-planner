@@ -74,7 +74,9 @@ type Numbers struct {
 	QuarterlyLines      int
 	WeeklyLines         int
 	DailyTodos          int
+	WeeklyTodos         int
 	DailyNotes          int
+	WeeklyNotes         int
 	DailyPersonal       int
 	DailyBottomHour     int
 	DailyTopHour        int
@@ -88,14 +90,20 @@ type Numbers struct {
 	NotesOnPage         int
 	DotHeightFull       int
 	DotWidthFull        int
+	DotWidthHalf        int
 	DotWidthTwoThirds   int
+	DotWidthQuarterly   int
+	DotWidthMonthly     int
 }
 
 type Paper struct {
-	Width  string `env:"PLANNER_LAYOUT_PAPER_WIDTH"`
-	Height string `env:"PLANNER_LAYOUT_PAPER_HEIGHT"`
+	Width     string `env:"PLANNER_LAYOUT_PAPER_WIDTH"`
+	Height    string `env:"PLANNER_LAYOUT_PAPER_HEIGHT"`
+	PaperType string `env:"PLANNER_LAYOUT_PAPER_TYPE"`
 
 	Margin Margin
+
+	DocumentClassSize string
 
 	ReverseMargins bool
 	MarginParWidth string
@@ -103,10 +111,13 @@ type Paper struct {
 }
 
 type Margin struct {
-	Top    string `env:"PLANNER_LAYOUT_PAPER_MARGIN_TOP"`
-	Bottom string `env:"PLANNER_LAYOUT_PAPER_MARGIN_BOTTOM"`
-	Left   string `env:"PLANNER_LAYOUT_PAPER_MARGIN_LEFT"`
-	Right  string `env:"PLANNER_LAYOUT_PAPER_MARGIN_RIGHT"`
+	TwoSide bool   `env:"PLANNER_LAYOUT_PAPER_MARGIN_TWO_SIDE"`
+	Top     string `env:"PLANNER_LAYOUT_PAPER_MARGIN_TOP"`
+	Bottom  string `env:"PLANNER_LAYOUT_PAPER_MARGIN_BOTTOM"`
+	Inner   string `env:"PLANNER_LAYOUT_PAPER_MARGIN_INNER"`
+	Outer   string `env:"PLANNER_LAYOUT_PAPER_MARGIN_OUTER"`
+	Left    string `env:"PLANNER_LAYOUT_PAPER_MARGIN_LEFT"`
+	Right   string `env:"PLANNER_LAYOUT_PAPER_MARGIN_RIGHT"`
 }
 
 func New(pathConfigs ...string) (Config, error) {

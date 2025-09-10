@@ -294,6 +294,28 @@ func (w *Week) HeadingMOS() string {
 	return tex.Tabular("@{}"+strings.Repeat("l", len(contents)), strings.Join(contents, ` & `))
 }
 
+func (w *Week) HeadingMOS_Left() string {
+	return `\begin{tabular}{@{}l|r}
+  \multirow{2}{*}{\resizebox{!}{\myLenHeaderResizeBox}{` + w.Target() + `}}
+  &
+  ` + strconv.Itoa(w.Days[0].Time.Day()) + ` ` + w.Days[0].Time.Month().String()[0:3] + ` ` + strconv.Itoa(w.Days[0].Time.Year()) + `
+  \\
+  &
+  ` + strconv.Itoa(w.Days[6].Time.Day()) + ` ` + w.Days[6].Time.Month().String()[0:3] + ` ` + strconv.Itoa(w.Days[6].Time.Year()) + `
+\end{tabular}`
+}
+
+func (w *Week) HeadingMOS_Right() string {
+	return `\begin{tabular}{@{}r|l}
+	` + strconv.Itoa(w.Days[0].Time.Day()) + ` ` + w.Days[0].Time.Month().String()[0:3] + ` ` + strconv.Itoa(w.Days[0].Time.Year()) + `
+	&
+  \multirow{2}{*}{\resizebox{!}{\myLenHeaderResizeBox}{` + w.Target() + `}}
+  \\
+  ` + strconv.Itoa(w.Days[6].Time.Day()) + ` ` + w.Days[6].Time.Month().String()[0:3] + ` ` + strconv.Itoa(w.Days[6].Time.Year()) + `
+  &
+\end{tabular}`
+}
+
 func (w *Week) Name() string {
 	return "Week " + strconv.Itoa(w.weekNumber())
 }

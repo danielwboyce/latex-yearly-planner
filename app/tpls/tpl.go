@@ -42,6 +42,14 @@ var tpl = template.Must(template.New("").Funcs(template.FuncMap{
 
 		return i != nil
 	},
+
+	"isodd": func(i, j int) bool {
+		return ((i-1)*3 + j) % 2 != 0
+	},
+
+	"isdivbysix": func(i, j int) bool {
+		return ((i-1)*3 + j) % 6 == 0
+	},
 }).ParseGlob(`./tpls/*`))
 
 type Tpl struct {

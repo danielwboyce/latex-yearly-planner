@@ -70,7 +70,57 @@ func (m *Month) WeekHeader(large interface{}) string {
 	for i := time.Sunday; i < 7; i++ {
 		name := ((m.Weekday + i) % 7).String()
 		if full {
-			name = `\hfil{}` + name
+			name = `\hfil{}` + name[:2]
+		} else {
+			name = name[:1]
+		}
+
+		names = append(names, name)
+	}
+
+	return strings.Join(names, " & ")
+}
+
+func (m *Month) WeekHeader_Left(large interface{}) string {
+	full, _ := large.(bool)
+
+	names := make([]string, 0, 8)
+
+	if full {
+		names = append(names, "")
+	} else {
+		names = append(names, "W")
+	}
+
+	for i := time.Sunday; i < 4; i++ {
+		name := ((m.Weekday + i) % 7).String()
+		if full {
+			name = `\hfil{}` + name[:2]
+		} else {
+			name = name[:1]
+		}
+
+		names = append(names, name)
+	}
+
+	return strings.Join(names, " & ")
+}
+
+func (m *Month) WeekHeader_Right(large interface{}) string {
+	full, _ := large.(bool)
+
+	names := make([]string, 0, 8)
+
+	if full {
+		names = append(names, "")
+	} else {
+		names = append(names, "W")
+	}
+
+	for i := time.Thursday; i < 7; i++ {
+		name := ((m.Weekday + i) % 7).String()
+		if full {
+			name = `\hfil{}` + name[:2]
 		} else {
 			name = name[:1]
 		}
@@ -97,6 +147,43 @@ func (m *Month) DefineTable(typ interface{}, large interface{}) string {
 	}
 
 	return `\begin{tabular}[t]{c|*{7}{c}}`
+}
+
+func (m *Month) DefineTable_Left(typ interface{}, large interface{}) string {
+	full, _ := large.(bool)
+
+	typStr, ok := typ.(string)
+	if !ok || typStr == "tabularx" {
+		weekAlign := "Y|"
+		days := "Y"
+		if full {
+			weekAlign = `|l!{\vrule width \myLenLineThicknessThick}`
+			days = "@{}X@{}|"
+		}
+
+		return `\begin{tabularx}{\linewidth}{` + weekAlign + `*{4}{` + days + `}}`
+	}
+
+	return `\begin{tabular}[t]{c|*{4}{c}}`
+}
+
+func (m *Month) DefineTable_Right(typ interface{}, large interface{}) string {
+	full, _ := large.(bool)
+
+	typStr, ok := typ.(string)
+	if !ok || typStr == "tabularx" {
+		weekAlign := "Y|"
+		days := "Y"
+		if full {
+			weekAlign = `|l!{\vrule width \myLenLineThicknessThick}`
+			days = "@{}X@{}|"
+		}
+
+		//return `\begin{tabularx}{0.75\linewidth}{` + weekAlign + `*{3}{` + days + `}}`
+		return `\begin{tabularx}{\linewidth}{` + weekAlign + `*{3}{` + days + `}}`
+	}
+
+	return `\begin{tabular}[t]{c|*{4}{c}}`
 }
 
 func (m *Month) EndTable(typ interface{}) string {
@@ -138,4 +225,47 @@ func (m *Month) HeadingMOS() string {
 	return `\begin{tabular}{@{}l}
   \resizebox{!}{\myLenHeaderResizeBox}{` + hyper.Target(m.Month.String(), m.Month.String()) + `\myDummyQ}
 \end{tabular}`
+}
+
+func (m *Month) HeadingMOS_Left() string {
+// 	return `\begin{tabular}{lr}
+//   \makebox[0.46\textwidth][l]{\resizebox{!}{\myLenHeaderResizeBox}{` + hyper.Target(m.Month.String(), m.Month.String()) + `}}
+//   &
+//   \makebox[0.46\textwidth][r]{\resizebox{!}{0.5\myLenHeaderResizeBox}{\color{\myColorGray}` + strconv.Itoa(m.Year.Number) + `}}
+// \end{tabular}`
+	return `\begin{tabular}{@{}r|l}
+  \multirow{2}{*}{\resizebox{!}{\myLenHeaderResizeBox}{` + m.Month.String() + `}}
+  &
+  \\
+  &
+  ` + strconv.Itoa(m.Year.Number) + `
+\end{tabular}`
+}
+
+func (m *Month) HeadingMOS_Right() string {
+// 	return `\begin{tabular}{lr}
+//   \makebox[0.46\textwidth][l]{\resizebox{!}{0.5\myLenHeaderResizeBox}{\color{\myColorGray}` + strconv.Itoa(m.Year.Number) + `}}
+//   &
+//   \makebox[0.46\textwidth][r]{\resizebox{!}{\myLenHeaderResizeBox}{` + hyper.Target(m.Month.String(), m.Month.String()) + `}} 
+// \end{tabular}`
+	return `\begin{tabular}{@{}r|l}
+  &
+  \multirow{2}{*}{\resizebox{!}{\myLenHeaderResizeBox}{` + m.Month.String() + `}}
+  \\
+  ` + strconv.Itoa(m.Year.Number) + `
+  &
+\end{tabular}`
+}
+
+func (m *Month) HeightForMonthlyWeeksCell() string {
+	switch numWeeks := len(m.Weeks); numWeeks {
+	case 4:
+		return "2.0cm"
+	case 5:
+		return "1.5cm"
+	case 6:
+		return "1.0cm"
+	default:
+		return "1.0cm"
+	}
 }

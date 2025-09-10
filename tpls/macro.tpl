@@ -10,10 +10,15 @@
 \newcommand{\myNumQuarterlyLines}{ {{- $numbers.QuarterlyLines -}} }
 \newcommand{\myNumDotHeightFull}{ {{- $numbers.DotHeightFull -}} }
 \newcommand{\myNumDotWidthFull}{ {{- $numbers.DotWidthFull -}} }
+\newcommand{\myNumDotWidthHalf}{ {{- $numbers.DotWidthHalf -}} }
 \newcommand{\myNumDotWidthTwoThirds}{ {{- $numbers.DotWidthTwoThirds -}} }
+\newcommand{\myNumDotWidthQuarterly}{ {{- $numbers.DotWidthQuarterly -}} }
+\newcommand{\myNumDotWidthMonthly}{ {{- $numbers.DotWidthMonthly -}} }
 \newcommand{\myNumWeeklyLines}{ {{- $numbers.WeeklyLines -}} }
 \newcommand{\myNumDailyTodos}{ {{- $numbers.DailyTodos -}} }
+\newcommand{\myNumWeeklyTodos}{ {{- $numbers.WeeklyTodos -}} }
 \newcommand{\myNumDailyNotes}{ {{- $numbers.DailyNotes -}} }
+\newcommand{\myNumWeeklyNotes}{ {{- $numbers.WeeklyNotes -}} }
 \newcommand{\myNumDailyBottomHour}{ {{- $numbers.DailyBottomHour -}} }
 \newcommand{\myNumDailyTopHour}{ {{- $numbers.DailyTopHour -}} }
 \newcommand{\myNumDailyDiaryGoals}{ {{- $numbers.DailyDiaryGoals -}} }
@@ -27,6 +32,7 @@
 \newlength{\myLenLineThicknessDefault}
 \newlength{\myLenLineThicknessThick}
 \newlength{\myLenLineHeightButLine}
+\newlength{\myLenScheduleLineHeightButLine}
 \newlength{\myLenTwoColSep}
 \newlength{\myLenTwoCol}
 \newlength{\myLenTriColSep}
@@ -44,6 +50,7 @@
 \setlength{\myLenLineThicknessDefault}{ {{- $lengths.LineThicknessDefault -}} }
 \setlength{\myLenLineThicknessThick}{ {{- $lengths.LineThicknessThick -}} }
 \setlength{\myLenLineHeightButLine}{ {{- $lengths.LineHeightButLine -}} }
+\setlength{\myLenScheduleLineHeightButLine}{ {{- $lengths.ScheduleLineHeightButLine -}} }
 \setlength{\myLenTwoColSep}{ {{- $lengths.TwoColSep -}} }
 \setlength{\myLenTwoCol}{\dimexpr.5\linewidth-.5\myLenTwoColSep}
 \setlength{\myLenFiveColSep}{ {{- $lengths.FiveColSep -}} }
@@ -66,6 +73,7 @@
 \newcommand{\myLineThick}{\hrule width \linewidth height \myLenLineThicknessThick}
 
 \newcommand{\myLineHeightButLine}{\myMinLineHeight{\myLenLineHeightButLine}}
+\newcommand{\myScheduleLineHeightButLine}{\myMinLineHeight{\myLenScheduleLineHeightButLine}}
 \newcommand{\myUnderline}[1]{#1\vskip1mm\myLineThick\par}
 \newcommand{\myLineColor}[1]{\textcolor{#1}{\myLinePlain}}
 \newcommand{\myLineGray}{\myLineColor{\myColorGray}}
