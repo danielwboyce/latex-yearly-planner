@@ -1,0 +1,15 @@
+dailytracking:
+  topics:
+    - 'Mood'
+    - 'Anxiety'
+    - 'Focus'
+    - 'Depress.'
+    - 'Sleep'
+    - 'Shame'
+  tracking:
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'

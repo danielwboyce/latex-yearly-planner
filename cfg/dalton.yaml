@@ -1,0 +1,14 @@
+dailytracking:
+  topics:
+    - 'Mood'
+    - 'Depress.'
+    - 'Focus'
+    - 'Dharma'
+    - 'Sleep'
+    - 'Carbs'
+  tracking:
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
+    - '$\downarrow$ & $\cdot$ & $\cdot$ & $\cdot$ & $\uparrow$'
