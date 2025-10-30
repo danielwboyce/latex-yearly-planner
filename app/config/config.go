@@ -23,6 +23,8 @@ type Config struct {
 
 	Pages Pages
 
+	DailyTracking DailyTracking
+
 	Layout Layout
 }
 
@@ -118,6 +120,11 @@ type Margin struct {
 	Outer   string `env:"PLANNER_LAYOUT_PAPER_MARGIN_OUTER"`
 	Left    string `env:"PLANNER_LAYOUT_PAPER_MARGIN_LEFT"`
 	Right   string `env:"PLANNER_LAYOUT_PAPER_MARGIN_RIGHT"`
+}
+
+type DailyTracking struct {
+	Topics   []string
+	Tracking []string
 }
 
 func New(pathConfigs ...string) (Config, error) {
